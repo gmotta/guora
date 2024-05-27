@@ -61,7 +61,7 @@ func TestWebAdd(t *testing.T) {
 	e := httpexpect.New(t, server.URL)
 
 	e.POST("/api/web/question").
-		WithJSON(map[string]interface{}{"title": "A Test Qustion Yeah?", "type": -1, "desc": "Just Test."}).
+		WithJSON(map[string]interface{}{"title": "A Test Question Yeah?", "type": -1, "desc": "Just Test."}).
 		WithCookie("ss", ss).
 		Expect().
 		Status(http.StatusOK).JSON().Object().ContainsKey("status").ValueEqual("status", 200)
@@ -79,7 +79,7 @@ func TestWebAdd(t *testing.T) {
 		Status(http.StatusOK).JSON().Object().ContainsKey("status").ValueEqual("status", 200)
 
 	e.POST("/api/web/reply").
-		WithJSON(map[string]interface{}{"content": "A Test Qustion Yeah?", "type": 1, "commentID": 1, "replyToProfileID": 1}).
+		WithJSON(map[string]interface{}{"content": "A Test Question Yeah?", "type": 1, "commentID": 1, "replyToProfileID": 1}).
 		WithCookie("ss", ss).
 		Expect().
 		Status(http.StatusOK).JSON().Object().ContainsKey("status").ValueEqual("status", 200)
